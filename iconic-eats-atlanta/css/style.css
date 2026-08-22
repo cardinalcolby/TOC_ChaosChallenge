@@ -1,0 +1,457 @@
+/* =========================================================
+   Iconic Eats — Atlanta
+   Design tokens per PRD §4.1, layered on top of Bootstrap 5.
+   ========================================================= */
+
+:root {
+  --ie-cream: #e7d2b9;
+  --ie-white: #ffffff;
+  --ie-crimson: #ce0e2d;
+  --ie-brightred: #ed2742;
+  --ie-text: #1a1a1a;
+
+  --font-display: "Bebas Neue", "Arial Narrow", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+
+  --nav-height: 72px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+body {
+  background-color: var(--ie-cream);
+  color: var(--ie-text);
+  font-family: var(--font-body);
+}
+
+h1, h2, h3, h4,
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+a {
+  color: var(--ie-crimson);
+}
+a:hover {
+  color: var(--ie-brightred);
+}
+
+/* Accessible focus state — required by NFR-Accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+.nav-link:focus-visible,
+.accordion-button:focus-visible {
+  outline: 3px solid var(--ie-brightred);
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: auto;
+  z-index: 2000;
+  background: var(--ie-white);
+  color: var(--ie-crimson);
+  padding: 0.75rem 1.25rem;
+  border-radius: 0 0 6px 0;
+  font-weight: 700;
+}
+.skip-link:focus {
+  left: 0;
+  top: 0;
+}
+
+/* =========================================================
+   Navigation
+   ========================================================= */
+.navbar-ie {
+  background-color: var(--ie-crimson);
+  min-height: var(--nav-height);
+}
+
+.navbar-ie .navbar-brand {
+  color: var(--ie-white);
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  letter-spacing: 1px;
+}
+
+.navbar-ie .nav-link {
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  padding-left: 0.85rem;
+  padding-right: 0.85rem;
+}
+
+.navbar-ie .nav-link:hover,
+.navbar-ie .nav-link.active {
+  color: var(--ie-white);
+  text-decoration: underline;
+  text-decoration-color: var(--ie-brightred);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+/* =========================================================
+   Buttons & badges
+   ========================================================= */
+.btn-ie-primary {
+  background-color: var(--ie-crimson);
+  border: 2px solid var(--ie-crimson);
+  color: var(--ie-white);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.btn-ie-primary:hover,
+.btn-ie-primary:focus {
+  background-color: var(--ie-brightred);
+  border-color: var(--ie-brightred);
+  color: var(--ie-white);
+}
+
+.btn-ie-outline {
+  background-color: transparent;
+  border: 2px solid var(--ie-white);
+  color: var(--ie-white);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.btn-ie-outline:hover,
+.btn-ie-outline:focus {
+  background-color: var(--ie-white);
+  color: var(--ie-crimson);
+  border-color: var(--ie-white);
+}
+
+.badge-ie {
+  display: inline-block;
+  background-color: var(--ie-brightred);
+  color: var(--ie-white);
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+  font-size: 0.95rem;
+  padding: 0.4em 0.9em;
+  transform: rotate(-2deg);
+  box-shadow: 0 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.badge-must-try {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background-color: var(--ie-brightred);
+  color: var(--ie-white);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  padding: 0.3em 0.6em;
+  border-radius: 2px;
+  z-index: 2;
+}
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero-section {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  background-color: var(--ie-crimson);
+  background-image: linear-gradient(
+      180deg,
+      rgba(206, 14, 45, 0.75) 0%,
+      rgba(206, 14, 45, 0.55) 45%,
+      rgba(231, 210, 185, 0.92) 100%
+    ),
+    url("../assets/img/Varsity_Atlanta_hero.jpg");
+  background-size: cover;
+  background-position: center;
+  color: var(--ie-white);
+}
+
+.hero-section .display-headline {
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  line-height: 0.95;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hero-section .lead {
+  max-width: 42rem;
+  font-family: var(--font-body);
+  text-transform: none;
+  color: var(--ie-white);
+}
+
+/* =========================================================
+   Section titles
+   ========================================================= */
+.section-eyebrow {
+  color: var(--ie-crimson);
+  font-family: var(--font-display);
+  letter-spacing: 2px;
+}
+
+.section-title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--ie-text);
+}
+
+section {
+  scroll-margin-top: var(--nav-height);
+}
+
+/* =========================================================
+   The Story — timeline
+   ========================================================= */
+.pull-quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.75rem);
+  color: var(--ie-crimson);
+  border-left: 6px solid var(--ie-brightred);
+  padding-left: 1.25rem;
+  text-transform: none;
+}
+
+.timeline {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  padding: 2rem 0.5rem 1rem;
+  scrollbar-width: thin;
+}
+
+.timeline-item {
+  flex: 0 0 220px;
+  background: var(--ie-white);
+  border-top: 6px solid var(--ie-crimson);
+  border-radius: 6px;
+  padding: 1.25rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-item .timeline-year {
+  font-family: var(--font-display);
+  color: var(--ie-brightred);
+  font-size: 1.5rem;
+}
+
+/* =========================================================
+   Food cards
+   ========================================================= */
+.card-ie {
+  background: var(--ie-white);
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  height: 100%;
+}
+
+.card-ie:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+.card-ie img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.card-ie .card-body h3 {
+  font-size: 1.25rem;
+}
+
+/* Learn the Lingo accordion */
+.lingo-panel {
+  background: var(--ie-white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.accordion-ie .accordion-button {
+  font-weight: 700;
+  color: var(--ie-text);
+  background-color: var(--ie-cream);
+}
+
+.accordion-ie .accordion-button:not(.collapsed) {
+  color: var(--ie-crimson);
+  background-color: var(--ie-cream);
+  box-shadow: inset 0 -2px 0 var(--ie-crimson);
+}
+
+.accordion-ie .accordion-button:focus {
+  box-shadow: 0 0 0 3px var(--ie-brightred);
+}
+
+/* =========================================================
+   Experience tiles
+   ========================================================= */
+.tile-ie {
+  text-align: center;
+  padding: 2rem 1.25rem;
+  height: 100%;
+}
+
+.tile-ie .tile-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: var(--ie-crimson);
+  color: var(--ie-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+}
+
+/* =========================================================
+   Plan Your Visit
+   ========================================================= */
+.plan-card {
+  background: var(--ie-white);
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.map-embed-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 66%; /* aspect ratio */
+  background: var(--ie-cream);
+}
+
+.map-embed-wrapper iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.attraction-pill {
+  display: inline-block;
+  background: var(--ie-cream);
+  border: 1px solid rgba(206, 14, 45, 0.3);
+  color: var(--ie-text);
+  border-radius: 999px;
+  padding: 0.35rem 0.9rem;
+  margin: 0.2rem;
+  font-size: 0.9rem;
+}
+
+/* =========================================================
+   More Cities teaser
+   ========================================================= */
+.city-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  filter: grayscale(70%);
+  opacity: 0.75;
+  height: 100%;
+}
+
+.city-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.city-card .coming-soon-ribbon {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  background: var(--ie-brightred);
+  color: var(--ie-white);
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  padding: 0.3em 0.7em;
+  border-radius: 2px;
+}
+
+.city-card .city-name {
+  background: rgba(26, 26, 26, 0.75);
+  color: var(--ie-white);
+  font-family: var(--font-display);
+  letter-spacing: 1px;
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#email-capture-form .form-control:focus {
+  border-color: var(--ie-crimson);
+  box-shadow: 0 0 0 0.2rem rgba(206, 14, 45, 0.25);
+}
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.footer-ie {
+  background-color: var(--ie-crimson);
+  color: var(--ie-white);
+}
+
+.footer-ie a {
+  color: var(--ie-white);
+}
+.footer-ie a:hover {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-ie .social-icons a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  margin-right: 0.5rem;
+}
+.footer-ie .social-icons a:hover {
+  background-color: var(--ie-brightred);
+  border-color: var(--ie-brightred);
+}
+
+.footer-ie small.disclaimer {
+  color: rgba(255, 255, 255, 0.75);
+  display: block;
+  max-width: 60rem;
+}

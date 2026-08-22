@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="t">
+<title id="t">Placeholder hero image — The Varsity exterior and neon signage</title>
+<rect width="1600" height="900" fill="#CE0E2D"/>
+<rect width="1600" height="900" fill="#1A1A1A" opacity="0.15"/>
+<g fill="#E7D2B9" opacity="0.5">
+<circle cx="200" cy="150" r="120"/>
+<circle cx="1450" cy="780" r="180"/>
+</g>
+<text x="50%" y="48%" font-family="Arial, sans-serif" font-size="54" font-weight="bold" fill="#FFFFFF" text-anchor="middle">PLACEHOLDER IMAGE</text>
+<text x="50%" y="56%" font-family="Arial, sans-serif" font-size="30" fill="#E7D2B9" text-anchor="middle">The Varsity — exterior / neon signage</text>
+<text x="50%" y="63%" font-family="Arial, sans-serif" font-size="20" fill="#FFFFFF" text-anchor="middle" opacity="0.8">Replace with licensed photography before launch</text>
+</svg>
